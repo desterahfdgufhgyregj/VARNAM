@@ -1,1 +1,431 @@
-# VARNAM
+[varnam index.html](https://github.com/user-attachments/files/28550284/varnam.index.html)
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Varnam - Traditional Handcrafted Arts & Crafts</title>
+    <style>
+        /* CSS Reset & Variables */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Georgia', 'Times New Roman', serif;
+        }
+
+        :root {
+            --primary-crimson: #8B0000;
+            --accent-terracotta: #D2691E;
+            --warm-gold: #DAA520;
+            --soft-yellow: #FFDB58;
+            --background-cream: #FFFDD0;
+            --text-dark: #2C1A1A;
+            --white: #FFFFFF;
+        }
+
+        body {
+            background-color: var(--background-cream);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: var(--primary-crimson);
+            border-bottom: 5px solid var(--warm-gold);
+            padding: 1.5rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo h1 {
+            color: var(--soft-yellow);
+            font-size: 2.2rem;
+            letter-spacing: 2px;
+            font-weight: bold;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        }
+
+        .logo p {
+            color: var(--white);
+            font-size: 0.85rem;
+            font-style: italic;
+            letter-spacing: 1px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 2rem;
+        }
+
+        nav ul li a {
+            color: var(--white);
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: var(--soft-yellow);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(44, 26, 26, 0.6), rgba(139, 0, 0, 0.4)), url('https://images.unsplash.com/photo-1513519245088-0e12902e5a38?auto=format&fit=crop&q=80&w=1200') no-repeat center center/cover;
+            height: 60vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: var(--white);
+            padding: 2rem;
+            border-bottom: 8px double var(--warm-gold);
+        }
+
+        .hero h2 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            max-width: 800px;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
+            font-style: italic;
+        }
+
+        /* Introduction / About Section */
+        .about-section {
+            max-width: 900px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+            text-align: center;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            color: var(--primary-crimson);
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60%;
+            height: 3px;
+            background: var(--warm-gold);
+            margin: 0.5rem auto 0;
+        }
+
+        .about-section p {
+            font-size: 1.2rem;
+            color: var(--text-dark);
+            margin-top: 1.5rem;
+        }
+
+        /* Products Showcase Gallery */
+        .gallery-container {
+            max-width: 1200px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .card {
+            background-color: var(--white);
+            border: 1px solid rgba(210, 105, 30, 0.2);
+            border-radius: 4px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(139,0,0,0.15);
+        }
+
+        .image-placeholder {
+            background-color: #f5f0e1;
+            height: 350px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+            text-align: center;
+            border-bottom: 4px solid var(--accent-terracotta);
+            color: var(--primary-crimson);
+        }
+
+        .image-placeholder span {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .image-placeholder p {
+            font-size: 0.9rem;
+            color: #666;
+            font-style: italic;
+        }
+
+        .card-info {
+            padding: 1.5rem;
+        }
+
+        .card-info h3 {
+            color: var(--primary-crimson);
+            font-size: 1.4rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .card-info p {
+            font-size: 1rem;
+            color: var(--text-dark);
+        }
+
+        /* Contact / Inquiry Form */
+        .contact-section {
+            background-color: var(--primary-crimson);
+            color: var(--white);
+            padding: 4rem 2rem;
+            border-top: 5px solid var(--warm-gold);
+        }
+
+        .contact-container {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .contact-section .section-title {
+            color: var(--soft-yellow);
+        }
+
+        .contact-section .section-title::after {
+            background: var(--white);
+        }
+
+        .contact-container p {
+            margin: 1.5rem 0 2rem;
+            font-size: 1.1rem;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            text-align: left;
+        }
+
+        label {
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+            color: var(--soft-yellow);
+        }
+
+        input, textarea {
+            padding: 0.8rem;
+            margin-bottom: 1.5rem;
+            border: 1px solid var(--warm-gold);
+            border-radius: 4px;
+            background-color: var(--background-cream);
+            color: var(--text-dark);
+            font-size: 1rem;
+        }
+
+        input:focus, textarea:focus {
+            outline: 2px solid var(--soft-yellow);
+        }
+
+        button {
+            background-color: var(--warm-gold);
+            color: var(--primary-crimson);
+            padding: 1rem;
+            font-size: 1.2rem;
+            font-weight: bold;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        button:hover {
+            background-color: var(--soft-yellow);
+            color: var(--text-dark);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #1A0F0F;
+            color: #A99292;
+            text-align: center;
+            padding: 2rem;
+            font-size: 0.9rem;
+            border-top: 1px solid var(--primary-crimson);
+        }
+
+        /* Responsive Layout */
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                text-align: center;
+            }
+            nav ul {
+                margin-top: 1rem;
+            }
+            nav ul li {
+                margin: 0 1rem;
+            }
+            .hero h2 {
+                font-size: 2.5rem;
+            }
+            .hero p {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header & Navigation -->
+    <header>
+        <div class="nav-container">
+            <div class="logo">
+                <h1>VARNAM</h1>
+                <p>The Color of Tradition</p>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">Our Story</a></li>
+                    <li><a href="#collection">Collection</a></li>
+                    <li><a href="#contact">Inquire</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <h2>Handcrafted Elegance</h2>
+        <p>Bringing timeless Bengali heritage and exquisite craftsmanship into modern homes.</p>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-section" id="about">
+        <h2 class="section-title">Our Story</h2>
+        <p>Welcome to <strong>Varnam</strong>, where custom artwork meets generations of cultural heritage. We specialize in intricate, hand-painted wooden artifacts, festive wedding items, and vibrant home decor. Every brushstroke represents a celebration of traditional design patterns, bringing auspicious colors and timeless elegance to your custom orders.</p>
+    </section>
+
+    <!-- Gallery Collection Section -->
+    <section class="gallery-container" id="collection">
+        <center><h2 class="section-title">The Collection</h2></center>
+        
+        <div class="grid">
+            <!-- Product 1 -->
+            <div class="card">
+                <div class="image-placeholder">
+                    <span>[ Product Image 1 ]</span>
+                    <p>Reference file:<br>WhatsApp Image 2026-06-03 at 4.49.19 PM.jpeg</p>
+                </div>
+                <div class="card-info">
+                    <h3>Hand-Painted Gach Kouto</h3>
+                    <p>A beautifully stylized crimson and gold wooden container, adorned with intricate, hand-painted white traditional creepers and floral motifs.</p>
+                </div>
+            </div>
+
+            <!-- Product 2 -->
+            <div class="card">
+                <div class="image-placeholder">
+                    <span>[ Product Image 2 ]</span>
+                    <p>Reference file:<br>WhatsApp Image 2026-06-03 at 4.49.15 PM.jpeg</p>
+                </div>
+                <div class="card-info">
+                    <h3>Vibrant Alpana Glass & Pedestal</h3>
+                    <p>A brilliant set balancing bright yellow, rich orange, and white details, capturing the bright warmth of ritualistic festivals.</p>
+                </div>
+            </div>
+
+            <!-- Product 3 -->
+            <div class="card">
+                <div class="image-placeholder">
+                    <span>[ Product Image 3 ]</span>
+                    <p>Reference file:<br>WhatsApp Image 2026-06-03 at 4.49.20 PM.jpeg</p>
+                </div>
+                <div class="card-info">
+                    <h3>Decorative Royal Kula</h3>
+                    <p>A striking hand-woven ceremonial winnowing fan, deeply stained in traditional dark crimson and featuring a majestic central peacock motif.</p>
+                </div>
+            </div>
+
+            <!-- Product 4 -->
+            <div class="card">
+                <div class="image-placeholder">
+                    <span>[ Product Image 4 ]</span>
+                    <p>Reference file:<br>WhatsApp Image 2026-06-03 at 4.49.28 PM (1).jpeg</p>
+                </div>
+                <div class="card-info">
+                    <h3>Ceremonial Marriage Set</h3>
+                    <p>A collective display showcasing custom design options, detailing palanquin artwork, beautiful lettering like "Shuvo Parinay", and classic geometry.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact & Custom Inquiries Section -->
+    <section class="contact-section" id="contact">
+        <div class="contact-container">
+            <h2 class="section-title">Custom Commissions</h2>
+            <p>Every piece at Varnam is handcrafted to order. Let us know what you have in mind for your custom events, weddings, or home decor, and we will craft it to your precise needs.</p>
+            
+            <form action="#" method="POST" onsubmit="event.preventDefault(); alert('Thank you for reaching out to Varnam! We will respond to your custom inquiry shortly.');">
+                <label for="name">Your Name</label>
+                <input type="text" id="name" name="name" placeholder="Enter your name" required>
+
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+                <label for="message">Describe Your Custom Requirements</label>
+                <textarea id="message" name="message" rows="5" placeholder="Specify patterns, items, quantities or specific colors..." required></textarea>
+
+                <button type="submit">Submit Custom Request</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Varnam Arts & Crafts. Handcrafted with devotion. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>
